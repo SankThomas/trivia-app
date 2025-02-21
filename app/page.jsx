@@ -5,6 +5,13 @@ import { motion } from "framer-motion";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import QuizScreen from "@/components/quizscreen";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export default function Home() {
   const [categories, setCategories] = useState([]);
@@ -46,28 +53,34 @@ export default function Home() {
           <div className="w-full max-w-md space-y-4">
             <div>
               <Label>Select category:</Label>
-              <select
-                className="w-full rounded border bg-white p-2 dark:bg-[#0a0a0a]"
-                onChange={(e) => setCategory(e.target.value)}
-              >
-                {categories.map((category) => (
-                  <option key={category.id} value={category.id}>
-                    {category.name}
-                  </option>
-                ))}
-              </select>
+              <Select value={category} onValueChange={setCategory}>
+                <SelectTrigger className="w-[450px]">
+                  <SelectValue placeholder="Select category" />
+                </SelectTrigger>
+
+                <SelectContent>
+                  {categories.map((category) => (
+                    <SelectItem key={category.id} value={category.id}>
+                      {category.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
 
             <div>
               <Label>Select difficulty:</Label>
-              <select
-                className="w-full rounded border bg-white p-2 dark:bg-[#0a0a0a]"
-                onChange={(e) => setDifficulty(e.target.value)}
-              >
-                <option value="easy">Easy</option>
-                <option value="medium">Medium</option>
-                <option value="hard">Hard</option>
-              </select>
+              <Select value={difficulty} onValueChange={setDifficulty}>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select difficulty" />
+                </SelectTrigger>
+
+                <SelectContent>
+                  <SelectItem value="easy">Easy</SelectItem>
+                  <SelectItem value="medium">Medium</SelectItem>
+                  <SelectItem value="hard">Hard</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
 
             <Button onClick={startQuiz} variant="outline">
