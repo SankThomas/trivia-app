@@ -1,6 +1,6 @@
 ## Preview
 
-![trivia app using the open tdb api](preview.png);
+![trivia app using the open tdb api](preview.png)
 
 ## About the app
 
