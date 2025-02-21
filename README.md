@@ -2,6 +2,8 @@
 
 ![trivia app using the open tdb api](preview.png)
 
+Preview showing the dark mode version.
+
 ## About the app
 
 This app uses the:
